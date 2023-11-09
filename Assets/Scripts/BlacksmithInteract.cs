@@ -13,6 +13,7 @@ public class BlacksmithInteract : Menu, IInteractable
     public Inventory inventory;
 
     public GameObject InsufficientFundsPage;
+    public GameObject MaxPotions;
 
     public TextMeshProUGUI coins;
     public TextMeshProUGUI potions;
@@ -81,6 +82,7 @@ public class BlacksmithInteract : Menu, IInteractable
 
     void Start(){
         InsufficientFundsPage.SetActive(false);
+        MaxPotions.SetActive(false);
         Objects.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
@@ -102,6 +104,16 @@ public class BlacksmithInteract : Menu, IInteractable
         UpdateRangerInventoryText();
     }
 
+    void MaxPotionsPage(){
+        canProcess = false;
+        MaxPotions.SetActive(true);
+    }
+
+    public void CloseMaxPotions(){
+        canProcess = true;
+        MaxPotions.SetActive(false);
+    }
+
     void InsufficientGold(){
         canProcess = false;
         InsufficientFundsPage.SetActive(true);
@@ -121,15 +133,40 @@ public class BlacksmithInteract : Menu, IInteractable
     }
 
     public void BuyPotion(){
-        if(inventory.GetItemQuantity("Gold") >= 15){
-            inventory.RemoveItem("Gold", 15);
-            inventory.AddItem("Potion");
+        if(inventory.GetItemQuantity("Potion") < 10){
+            if(inventory.GetItemQuantity("Gold") >= 15){
+                inventory.RemoveItem("Gold", 15);
+                inventory.AddItem("Potion");
 
-            Debug.Log("1 Potion Added");
+                Debug.Log("1 Potion Added");
+            }
+            else {
+                InsufficientGold();
+                Debug.Log("Not enough gold for potion");
+            }
+        } else {
+            MaxPotionsPage();
+            Debug.Log("Maxxed out on potions");
         }
-        else {
-            InsufficientGold();
-            Debug.Log("Not enough gold for potion");
+    }
+
+    public void BuyMaxPotion(){
+        if(inventory.GetItemQuantity("Potion") < 10){
+            int potionAmount = inventory.GetItemQuantity("Potion");
+            int potionsNeeded = 10 - potionAmount;
+            int maxCost = (10 - potionAmount) * 15;
+            if(inventory.GetItemQuantity("Gold") > maxCost){
+                inventory.RemoveItem("Gold", maxCost);
+                inventory.AddItem("Potion", potionsNeeded);
+
+                Debug.Log(potionsNeeded + " Potion Added");
+            } else {
+                InsufficientGold();
+                Debug.Log("Not enough gold for potion");
+            }
+        } else {
+            MaxPotionsPage();
+            Debug.Log("Maxxed out on potions");
         }
     }
 
