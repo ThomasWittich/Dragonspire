@@ -10,17 +10,26 @@ public class InventoryWindow : Menu
     public bool isPaused;
     private bool canProcess = false;
 
+    private int rangerArmorLevel = 0;
+    private int rangerWeapLevel = 0;
+    private int mageArmorLevel = 0;
+    private int mageWeapLevel = 0;
+    private int knightArmorLevel = 1;
+    private int knightWeapLevel = 1;
+
     public Inventory inventory;
     public TextMeshProUGUI goldText;
     public TextMeshProUGUI potionText;
     public TextMeshProUGUI frozenHeartsText;
 
-    public int rangerArmorLevel = 0;
-    public int rangerWeapLevel = 0;
-    public int mageArmorLevel = 0;
-    public int mageWeapLevel = 0;
-    public int knightArmorLevel = 1;
-    public int knightWeapLevel = 1;
+    public TextMeshProUGUI KWeap;
+    public TextMeshProUGUI KArmor;
+
+    public TextMeshProUGUI RWeap;
+    public TextMeshProUGUI RArmor;
+
+    public TextMeshProUGUI MWeap;
+    public TextMeshProUGUI MArmor;
 
     public GameObject Klevel1WeaponObject;
     public GameObject Klevel2WeaponObject;
@@ -55,6 +64,11 @@ public class InventoryWindow : Menu
     public GameObject Mlevel2ArmorObject;
     public GameObject Mlevel3ArmorObject;
     public GameObject Mlevel4ArmorObject;
+
+    private string level1Text = "Level 1\n";
+    private string level2Text = "Level 2\n";
+    private string level3Text = "Level 3\n";
+    private string level4Text = "Level 4\n";
 
     void Start(){
         Objects.SetActive(false);
@@ -126,6 +140,35 @@ public class InventoryWindow : Menu
     }
 
     public void UpdateKnightArmor(int knightArmorLevel){
+        int baseKHealth;
+        int baseKArmor;
+        string level;
+
+        switch(knightArmorLevel){
+            case 1:
+                baseKHealth = 35;
+                baseKArmor = 20;
+                level = level1Text;
+                break;
+            case 2:
+                baseKArmor = 25;
+                baseKHealth = 40;
+                level = level2Text;
+                break;
+            case 3:
+                baseKArmor = 35;
+                baseKHealth = 50;
+                level = level3Text;
+                break;
+            default:
+                baseKArmor = 50;
+                baseKHealth = 65;
+                level = level4Text;
+                break;
+        }
+        level = level + "Armor - " + baseKArmor + "\nHealth - " + baseKHealth;
+
+        KArmor.text = level;
 
         SetGameObjectVisibility(Klevel1ArmorObject, knightArmorLevel == 1);
         SetGameObjectVisibility(Klevel2ArmorObject, knightArmorLevel == 2);
@@ -134,6 +177,30 @@ public class InventoryWindow : Menu
     }
 
     public void UpdateKnightWeapon(int knightWeapLevel){
+        int baseKDamage;
+        string level;
+
+        switch(knightWeapLevel){
+            case 1:
+                baseKDamage = 20;
+                level = level1Text;
+                break;
+            case 2:
+                baseKDamage = 25;
+                level = level2Text;
+                break;
+            case 3:
+                baseKDamage = 35;
+                level = level3Text;
+                break;
+            default:
+                baseKDamage = 50;
+                level = level4Text;
+                break;
+        }
+        level = level + "Damage - " + baseKDamage;
+
+        KWeap.text = level;
 
         SetGameObjectVisibility(Klevel1WeaponObject, knightWeapLevel == 1);
         SetGameObjectVisibility(Klevel2WeaponObject, knightWeapLevel == 2);
@@ -156,6 +223,40 @@ public class InventoryWindow : Menu
     }
 
     public void UpdateRangerArmor(int rangerArmorLevel){
+        int baseRHealth;
+        int baseRArmor;
+        string level;
+
+        switch(rangerArmorLevel){
+            case 1:
+                baseRHealth = 25;
+                baseRArmor = 10;
+                level = level1Text;
+                break;
+            case 2:
+                baseRArmor = 15;
+                baseRHealth = 30;
+                level = level2Text;
+                break;
+            case 3:
+                baseRArmor = 25;
+                baseRHealth = 40;
+                level = level3Text;
+                break;
+            case 4:
+                baseRArmor = 40;
+                baseRHealth = 55;
+                level = level4Text;
+                break;
+            default:
+                baseRArmor = 0;
+                baseRHealth = 0;
+                level = "Not Unlocked\n";
+                break;
+        }
+        level = level + "Evade Chance - " + baseRArmor + "\nHealth - " + baseRHealth;
+
+        RArmor.text = level;
 
         SetGameObjectVisibility(Rlevel0ArmorObject, rangerArmorLevel == 0);
         SetGameObjectVisibility(Rlevel1ArmorObject, rangerArmorLevel == 1);
@@ -165,6 +266,34 @@ public class InventoryWindow : Menu
     }
 
     public void UpdateRangerWeapon(int rangerWeapLevel){
+        int baseRDamage;
+        string level;
+
+        switch(rangerWeapLevel){
+            case 1:
+                baseRDamage = 30;
+                level = level1Text;
+                break;
+            case 2:
+                baseRDamage = 35;
+                level = level2Text;
+                break;
+            case 3:
+                baseRDamage = 45;
+                level = level3Text;
+                break;
+            case 4:
+                baseRDamage = 60;
+                level = level4Text;
+                break;
+            default:
+                baseRDamage = 0;
+                level = "Not Unlocked\n";
+                break;
+        }
+        level = level + "Damage - " + baseRDamage;
+
+        RWeap.text = level;
 
         SetGameObjectVisibility(Rlevel0WeaponObject, rangerWeapLevel == 0);
         SetGameObjectVisibility(Rlevel1WeaponObject, rangerWeapLevel == 1);
@@ -188,6 +317,40 @@ public class InventoryWindow : Menu
     }
 
     public void UpdateMageArmor(int mageArmorLevel){
+        int baseMHealth;
+        int baseMArmor;
+        string level;
+
+        switch(mageArmorLevel){
+            case 1:
+                baseMHealth = 20;
+                baseMArmor = 5;
+                level = level1Text;
+                break;
+            case 2:
+                baseMArmor = 10;
+                baseMHealth = 25;
+                level = level2Text;
+                break;
+            case 3:
+                baseMArmor = 20;
+                baseMHealth = 35;
+                level = level3Text;
+                break;
+            case 4:
+                baseMArmor = 35;
+                baseMHealth = 50;
+                level = level4Text;
+                break;
+            default:
+                baseMArmor = 0;
+                baseMHealth = 0;
+                level = "Not Unlocked\n";
+                break;
+        }
+        level = level + "Extra Damage - " + baseMArmor + "\nHealth - " + baseMHealth;
+
+        MArmor.text = level;
 
         SetGameObjectVisibility(Mlevel0ArmorObject, mageArmorLevel == 0);
         SetGameObjectVisibility(Mlevel1ArmorObject, mageArmorLevel == 1);
@@ -197,6 +360,35 @@ public class InventoryWindow : Menu
     }
 
     public void UpdateMageWeapon(int mageWeapLevel){
+        int baseMDamage;
+        string level;
+
+        switch(mageWeapLevel){
+            case 1:
+                baseMDamage = 35;
+                level = level1Text;
+                break;
+            case 2:
+                baseMDamage = 40;
+                level = level2Text;
+                break;
+            case 3:
+                baseMDamage = 50;
+                level = level3Text;
+                break;
+            case 4:
+                baseMDamage = 65;
+                level = level4Text;
+                break;
+            default:
+                baseMDamage = 0;
+                level = "Not Unlocked\n";
+                break;
+        }
+        level = level + "Damage - " + baseMDamage;
+
+        MWeap.text = level;
+
         SetGameObjectVisibility(Mlevel0WeaponObject, mageWeapLevel == 0);
         SetGameObjectVisibility(Mlevel1WeaponObject, mageWeapLevel == 1);
         SetGameObjectVisibility(Mlevel2WeaponObject, mageWeapLevel == 2);

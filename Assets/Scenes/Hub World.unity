@@ -5597,8 +5597,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 182.70007, y: -45.9}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 219.53973, y: -45.9}
+  m_SizeDelta: {x: 273.6793, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &125353288
 MonoBehaviour:
@@ -5689,7 +5689,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 41.090576, w: -61.96341}
+  m_margin: {x: 0, y: 0, z: -1.690918, w: -61.96341}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -12929,8 +12929,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 182.70007, y: -41.4}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 218.35132, y: -41.4}
+  m_SizeDelta: {x: 271.3026, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &284726096
 MonoBehaviour:
@@ -13019,7 +13019,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 41.090576, w: -61.96341}
+  m_margin: {x: 0, y: 0, z: -0.89868164, w: -61.96341}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -81278,12 +81278,12 @@ MonoBehaviour:
   goldText: {fileID: 2043217707}
   potionText: {fileID: 656941791}
   frozenHeartsText: {fileID: 1184482086}
-  rangerArmorLevel: 0
-  rangerWeapLevel: 0
-  mageArmorLevel: 0
-  mageWeapLevel: 0
-  knightArmorLevel: 1
-  knightWeapLevel: 1
+  KWeap: {fileID: 1021833213}
+  KArmor: {fileID: 701634180}
+  RWeap: {fileID: 110804263}
+  RArmor: {fileID: 284726096}
+  MWeap: {fileID: 1523192736}
+  MArmor: {fileID: 125353288}
   Klevel1WeaponObject: {fileID: 961623008}
   Klevel2WeaponObject: {fileID: 2056014812}
   Klevel3WeaponObject: {fileID: 1858911468}
