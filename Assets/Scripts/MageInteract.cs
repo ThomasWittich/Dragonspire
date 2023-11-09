@@ -33,7 +33,7 @@ public class MageInteract : Menu, IInteractable {
     }
 
     public void AddMageToTeam(){
-        if(!inventory.IsPersonInTeam("Mage") && inventory.GetItemQuantity("Gold") > 250){
+        if(!inventory.IsPersonInTeam("Mage") && inventory.GetItemQuantity("Gold") >= 250){
             Inventory.teamMembers.Add("Mage");
             inventory.AddItem("MWeap");
             inventory.AddItem("MArmor");

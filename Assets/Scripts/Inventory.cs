@@ -13,7 +13,7 @@ public class Inventory : MonoBehaviour
     {
         if(FirstTime){
             AddItem("Potion", 5);
-            AddItem("Gold", 900);
+            AddItem("Gold", 1100);
             AddItem("KWeap");
             AddItem("KArmor");
             AddItem("FrozenHearts", 0);

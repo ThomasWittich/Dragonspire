@@ -155,7 +155,7 @@ public class BlacksmithInteract : Menu, IInteractable
             int potionAmount = inventory.GetItemQuantity("Potion");
             int potionsNeeded = 10 - potionAmount;
             int maxCost = (10 - potionAmount) * 15;
-            if(inventory.GetItemQuantity("Gold") > maxCost){
+            if(inventory.GetItemQuantity("Gold") >= maxCost){
                 inventory.RemoveItem("Gold", maxCost);
                 inventory.AddItem("Potion", potionsNeeded);
 

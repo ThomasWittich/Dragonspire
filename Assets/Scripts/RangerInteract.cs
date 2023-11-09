@@ -33,7 +33,7 @@ public class RangerInteract : Menu, IInteractable
     }
 
     public void AddRangerToTeam(){
-        if(!inventory.IsPersonInTeam("Ranger") && inventory.GetItemQuantity("Gold") > 100){
+        if(!inventory.IsPersonInTeam("Ranger") && inventory.GetItemQuantity("Gold") >= 100){
             Inventory.teamMembers.Add("Ranger");
             inventory.AddItem("RWeap");
             inventory.AddItem("RArmor");
