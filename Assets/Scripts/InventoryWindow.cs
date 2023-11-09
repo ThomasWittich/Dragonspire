@@ -20,7 +20,13 @@ public class InventoryWindow : Menu
     public Inventory inventory;
     public TextMeshProUGUI goldText;
     public TextMeshProUGUI potionText;
+
+    public TextMeshProUGUI HgoldText;
+    public TextMeshProUGUI HpotionText;
     public TextMeshProUGUI frozenHeartsText;
+
+    public GameObject PreHearts;
+    public GameObject AfterHearts;
 
     public TextMeshProUGUI KWeap;
     public TextMeshProUGUI KArmor;
@@ -70,6 +76,8 @@ public class InventoryWindow : Menu
     private string level3Text = "Level 3\n";
     private string level4Text = "Level 4\n";
 
+    private bool hardMode = false;
+
     void Start(){
         Objects.SetActive(false);
         Time.timeScale = 1f;
@@ -79,6 +87,7 @@ public class InventoryWindow : Menu
     }
 
     void Update(){
+        if (inventory.GetItemQuantity("FrozenHearts") > 0) {hardMode = true;}
         if(Input.GetKeyDown(KeyCode.I)){
             if(isPaused){
                 ExitInventory();
@@ -121,14 +130,19 @@ public class InventoryWindow : Menu
     }
 
     public void UpdateInventoryNorm(){
-        int healthPotionQuantity = inventory.GetItemQuantity("Potion");
-       potionText.text = healthPotionQuantity.ToString();
+            SetGameObjectVisibility(PreHearts, hardMode == false);
+            SetGameObjectVisibility(AfterHearts, hardMode == true);
 
-       int goldQuantity = inventory.GetItemQuantity("Gold");
-       goldText.text = goldQuantity.ToString();
+            int healthPotionQuantity = inventory.GetItemQuantity("Potion");
+            potionText.text = healthPotionQuantity.ToString();
+            HpotionText.text = healthPotionQuantity.ToString();
 
-       int frozenHeartsQuantity = inventory.GetItemQuantity("FrozenHearts");
-       frozenHeartsText.text = frozenHeartsQuantity.ToString();
+            int goldQuantity = inventory.GetItemQuantity("Gold");
+            goldText.text = goldQuantity.ToString();
+            HgoldText.text = goldQuantity.ToString();
+
+            int frozenHeartsQuantity = inventory.GetItemQuantity("FrozenHearts");
+            frozenHeartsText.text = frozenHeartsQuantity.ToString();
     }
 
     public void UpdateKnightInventoryText(){

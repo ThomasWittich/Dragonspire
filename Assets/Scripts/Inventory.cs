@@ -16,7 +16,7 @@ public class Inventory : MonoBehaviour
             AddItem("Gold", 900);
             AddItem("KWeap");
             AddItem("KArmor");
-            AddItem("FrozenHearts", 0, 0);
+            AddItem("FrozenHearts", 0);
             teamMembers.Add("Knight");
             FirstTime = false;
         }
