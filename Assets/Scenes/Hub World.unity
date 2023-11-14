@@ -2745,7 +2745,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 61739999}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1465087731}
+        m_TargetAssemblyTypeName: StartInteract, Assembly-CSharp
+        m_MethodName: startRunButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &61739999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63396,6 +63408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Objects: {fileID: 1465087727}
   isPaused: 0
+  inventory: {fileID: 1564024865}
 --- !u!4 &1465370066 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2426846095409649158, guid: a917f6843cc222145828cefe2f799e67, type: 3}
@@ -72035,6 +72048,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Objects: {fileID: 1465087727}
   isPaused: 0
+  inventory: {fileID: 0}
 --- !u!1001 &1668296298
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -86836,7 +86850,7 @@ PrefabInstance:
     - target: {fileID: 9500000, guid: 5b4708c92d1d63d45b292f6542faecc6, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 6e9f7d23aaf9b4a4aa92311f4d6fd929, type: 2}
+      objectReference: {fileID: 9100000, guid: 47f29fac49912c84b964c579169fe933, type: 2}
     - target: {fileID: 13700000, guid: 5b4708c92d1d63d45b292f6542faecc6, type: 3}
       propertyPath: m_Materials.Array.data[2]
       value: 
